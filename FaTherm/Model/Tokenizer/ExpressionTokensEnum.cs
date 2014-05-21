@@ -10,6 +10,8 @@ namespace FaTherm.Model.Tokenizer
     {
         None = 0,
         Constant = 1,
-        Variable
+        Variable = 2,
+        Operator = 3,
+        Function = 4
     }
 }
