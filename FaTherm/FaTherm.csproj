@@ -61,6 +61,8 @@
     <Compile Include="Model\Tokenizer\DeterministicFiniteAutomaton.cs" />
     <Compile Include="Model\Tokenizer\ExpressionAutomaton.cs" />
     <Compile Include="Model\Tokenizer\ExpressionTokensEnum.cs" />
+    <Compile Include="Model\Tokenizer\Tokenizer.cs" />
+    <Compile Include="ToDo.cs" />
     <Compile Include="View\WinDoorControl.xaml.cs">
       <DependentUpon>WinDoorControl.xaml</DependentUpon>
     </Compile>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using FaTherm.Model.Tokenizer;
 
 namespace FaTherm
 {
@@ -23,6 +24,21 @@ namespace FaTherm
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            DeterministicFiniteAutomaton da = new DeterministicFiniteAutomaton();
+
+            da.ReadCharacter('1');
+            da.ReadCharacter('0');
+            da.ReadCharacter('9');
+            da.ReadCharacter('0');
+            da.ReadCharacter('+');
+            da.ReadCharacter('9');
+            da.ReadCharacter('0');
+            da.ReadCharacter('*');
+            da.ReadCharacter('/');
         }
     }
 }

@@ -6,6 +6,7 @@
     <Grid>
         <view:WinDoorControl Width="100" Height="100">
             
-        </view:WinDoorControl>    
+        </view:WinDoorControl>
+        <Button Content="Th_e test button" HorizontalAlignment="Left" Margin="209,238,0,0" VerticalAlignment="Top" Width="100" Click="Button_Click_1"/>
     </Grid>
 </Window>

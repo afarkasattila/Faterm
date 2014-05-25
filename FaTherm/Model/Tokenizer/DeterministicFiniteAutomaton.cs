@@ -31,7 +31,7 @@ namespace FaTherm.Model.Tokenizer
         /// <summary>
         /// Dictionary mapping the characters to their indices.
         /// </summary>
-        private Dictionary<char, int> inputCharacterIndices;
+        private Dictionary<char, int> _inputCharacterIndices = new Dictionary<char, int>();
 
         /// <summary>
         /// The number of states the automaton has.
@@ -64,8 +64,9 @@ namespace FaTherm.Model.Tokenizer
             // Set sample data
             _inputCharacters = "0123456789+-*/";
             _inputCharacterCount = InputCharacters.Count();
+
             for (int i = 0; i < InputCharacterCount; i++)
-                inputCharacterIndices[InputCharacters[i]] = i;
+                _inputCharacterIndices[InputCharacters[i]] = i;
 
             // Set the default state count.
             _stateCount = 3;
@@ -156,7 +157,7 @@ namespace FaTherm.Model.Tokenizer
             ValidState(newstate);
             ValidCharacter(character);
 
-            SetTransitionWithoutValidation(oldState, inputCharacterIndices[character], newstate);
+            SetTransitionWithoutValidation(oldState, _inputCharacterIndices[character], newstate);
 
             return true;
         }
@@ -186,7 +187,7 @@ namespace FaTherm.Model.Tokenizer
             ValidState(oldState);
             ValidCharacter(character);
 
-            return transitions[oldState, inputCharacterIndices[character]];
+            return transitions[oldState, _inputCharacterIndices[character]];
         }
 
         bool ValidState(int state)
@@ -213,6 +214,13 @@ namespace FaTherm.Model.Tokenizer
             return true;
         }
 
+        /// <summary>
+        /// Sets a two dimensional array to a given value.
+        /// </summary>
+        /// <param name="matrix"></param>
+        /// <param name="firstDimension"></param>
+        /// <param name="secondDimension"></param>
+        /// <param name="defaultValue"></param>
         private void ClearMatrix(int[,] matrix, int firstDimension, int secondDimension, int defaultValue = -1)
         {
             for (int i = 0; i < firstDimension; i++)
@@ -220,12 +228,17 @@ namespace FaTherm.Model.Tokenizer
                     matrix[i, j] = defaultValue;
         }
 
-        int ReadCharacter(char character)
+        /// <summary>
+        /// Reads a caracter and changes the automaton's state accordingly. It also validates the input character.
+        /// </summary>
+        /// <param name="character"></param>
+        /// <returns>The new state after processing the input character.</returns>
+        public int ReadCharacter(char character)
         {
             // Parameter validation.
             ValidCharacter(character);
 
-            return transitions[currentState, character];
+            return currentState = transitions[currentState, _inputCharacterIndices[character]];
         }
 
 
