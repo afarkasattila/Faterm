@@ -60,8 +60,11 @@
     <Compile Include="Model\Expression\IExpressionNode.cs" />
     <Compile Include="Model\Tokenizer\DeterministicFiniteAutomaton.cs" />
     <Compile Include="Model\Tokenizer\ExpressionAutomaton.cs" />
-    <Compile Include="Model\Tokenizer\ExpressionTokensEnum.cs" />
+    <Compile Include="Model\Tokenizer\ExpressionEnums\ExpressionTokensEnum.cs" />
+    <Compile Include="Model\Tokenizer\ExpressionEnums\SimpleExpressionTokensEnum.cs" />
+    <Compile Include="Model\Tokenizer\ITokenizer.cs" />
     <Compile Include="Model\Tokenizer\Tokenizer.cs" />
+    <Compile Include="Model\Tokenizer\TokenizerFactory.cs" />
     <Compile Include="ToDo.cs" />
     <Compile Include="View\WinDoorControl.xaml.cs">
       <DependentUpon>WinDoorControl.xaml</DependentUpon>

@@ -39,6 +39,14 @@ namespace FaTherm
             da.ReadCharacter('0');
             da.ReadCharacter('*');
             da.ReadCharacter('/');
+
+            ITokenizer<SimpleExpressionTokensEnum> tokenizer = TokenizerFactory.GetSimpleTokenizer();
+
+            tokenizer.SetStringToTokenize("123+45*5g");
+
+            var tokens = tokenizer.GetTokens();
+            int i = 8;
+            i++;
         }
     }
 }
